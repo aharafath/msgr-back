@@ -26,6 +26,7 @@ export const getAllUsers = asyncHandler(async (req, res) => {
  */
 export const getAllUsersForBlood = asyncHandler(async (req, res) => {
   const { bloodGroup, division, district, upazila, available } = req.query;
+
   // Step 1: Build MongoDB filters (excluding availability)
   const mongoFilters = {};
 

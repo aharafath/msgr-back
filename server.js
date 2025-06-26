@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://msgr-front.vercel.app/"],
+    origin: ["http://localhost:3000", "https://msgr-front.vercel.app"],
     credentials: true,
   })
 );
@@ -37,7 +37,7 @@ app.use(router);
 app.use(errorHandler);
 
 const server = http.createServer(app);
-socketServer(server, "http://localhost:3000");
+socketServer(server, "https://msgr-front.vercel.app");
 
 // app listen
 server.listen(PORT, () => {
