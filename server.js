@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.ORIGIN || "*",
+    origin: [process.env.ORIGIN],
     credentials: true,
   })
 );
@@ -37,7 +37,7 @@ app.use(router);
 app.use(errorHandler);
 
 const server = http.createServer(app);
-socketServer(server, process.env.ORIGIN || "*");
+socketServer(server, [process.env.ORIGIN]);
 
 // app listen
 server.listen(PORT, () => {
